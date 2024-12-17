@@ -36,12 +36,12 @@ export default {
   },
   methods: {
     async handleServerConnection() {
-      const isConnected = await checkServerConnection(this.serverUrl);
-      if (isConnected) {
+      const result = await checkServerConnection(this.serverUrl);
+      if (result.success) {
         window.location.href = this.serverUrl;
       } else {
         this.error = true;
-        this.errorMessage = "No se pudo conectar a la dirección configurada.";
+        this.errorMessage = result.message || "No se pudo conectar al servidor.";
       }
     },
   },

@@ -1,24 +1,31 @@
+<!--
+Path: src/components/NetworkError.vue
+Este componente muestra un mensaje de error cuando no se puede conectar al servidor.
+-->
+
 <template>
-    <div class="alert alert-danger" role="alert">
-      ⚠️ Problema en la red: {{ message }}
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "NetworkError",
-    props: {
-      message: {
-        type: String,
-        required: true,
-      },
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">⚠️ Problema en la red</h4>
+    <p>{{ message }}</p>
+    <hr />
+    <p class="mb-0">Por favor, verifica tu conexión o intenta más tarde.</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "NetworkError",
+  props: {
+    message: {
+      type: String,
+      required: true,
     },
-  };
-  </script>
-  
-  <style scoped>
-  .alert {
-    margin-top: 20px;
-  }
-  </style>
-  
+  },
+};
+</script>
+
+<style scoped>
+.alert {
+  margin-top: 20px;
+}
+</style>
