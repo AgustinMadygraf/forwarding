@@ -1,11 +1,11 @@
-<!--
-Path: src/App.vue
-Este componente es el encargado de redirigir al usuario al servidor de la aplicación.
--->
-
 <template>
   <div id="app" class="container mt-5">
-    <NetworkError v-if="error" :message="errorMessage" />
+    <NetworkError 
+      v-if="error" 
+      :message="errorMessage" 
+      :primary-url="serverUrl" 
+      :secondary-url="secondaryUrl" 
+    />
     <div v-else class="text-center mt-5">
       <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Redirigiendo...</span>
@@ -44,7 +44,7 @@ export default {
         return;
       }
 
-      // Si falla, intentar con la URL secundaria
+      // Si falla la primaria, intentar con la secundaria
       console.warn("URL primaria fallida, intentando con URL secundaria...");
       result = await checkServerConnection(this.secondaryUrl);
 
@@ -53,8 +53,7 @@ export default {
       } else {
         // Ambas URLs fallaron
         this.error = true;
-        this.errorMessage =
-          "No se pudo conectar ni a la URL primaria ni secundaria.";
+        this.errorMessage = "No se pudo conectar ni a la URL primaria ni a la secundaria.";
       }
     },
   },
