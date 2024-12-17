@@ -23,9 +23,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.alert {
-  margin-top: 20px;
-}
-</style>
