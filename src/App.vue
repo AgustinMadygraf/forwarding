@@ -1,3 +1,8 @@
+<!--
+Path: src/App.vue
+Este componente es la página de inicio de la aplicación.
+-->
+
 <template>
   <div id="app" class="container mt-5">
     <NetworkError 

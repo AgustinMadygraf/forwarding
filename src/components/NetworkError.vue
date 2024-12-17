@@ -10,8 +10,14 @@ Este componente muestra un mensaje de error cuando no se puede conectar al servi
     <hr />
     <p class="mb-0">Por favor, verifica tu conexión o intenta más tarde.</p>
     <div class="mt-3">
-      <p><strong>URL primaria:</strong> <a :href="primaryUrl" target="_blank">{{ primaryUrl }}</a></p>
-      <p><strong>URL secundaria:</strong> <a :href="secondaryUrl" target="_blank">{{ secondaryUrl }}</a></p>
+      <p><strong>URL primaria:</strong>
+        <a v-if="isPrimaryCors" :href="primaryUrl" target="_blank">{{ primaryUrl }}</a>
+        <span v-else>{{ primaryUrl }}</span>
+      </p>
+      <p><strong>URL secundaria:</strong>
+        <a v-if="isSecondaryCors" :href="secondaryUrl" target="_blank">{{ secondaryUrl }}</a>
+        <span v-else>{{ secondaryUrl }}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -26,11 +32,19 @@ export default {
     },
     primaryUrl: {
       type: String,
-      required: false, // Puede que quieras hacerlo opcional, pero en este caso siempre las tendremos.
+      required: false,
     },
     secondaryUrl: {
       type: String,
       required: false,
+    },
+    isPrimaryCors: {
+      type: Boolean,
+      required: true,
+    },
+    isSecondaryCors: {
+      type: Boolean,
+      required: true,
     },
   },
 };
