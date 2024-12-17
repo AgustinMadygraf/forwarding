@@ -28,7 +28,8 @@ export default {
     return {
       error: false,
       errorMessage: "",
-      serverUrl: process.env.VUE_APP_PRIMARY_URL || "http://localhost",
+      serverUrl: process.env.VUE_APP_PRIMARY_URL,
+      secondaryUrl: process.env.VUE_APP_SECONDARY_URL,
     };
   },
   mounted() {
@@ -36,12 +37,24 @@ export default {
   },
   methods: {
     async handleServerConnection() {
-      const result = await checkServerConnection(this.serverUrl);
+      // Intentar con la URL primaria
+      let result = await checkServerConnection(this.serverUrl);
       if (result.success) {
         window.location.href = this.serverUrl;
+        return;
+      }
+
+      // Si falla, intentar con la URL secundaria
+      console.warn("URL primaria fallida, intentando con URL secundaria...");
+      result = await checkServerConnection(this.secondaryUrl);
+
+      if (result.success) {
+        window.location.href = this.secondaryUrl;
       } else {
+        // Ambas URLs fallaron
         this.error = true;
-        this.errorMessage = result.message || "No se pudo conectar al servidor.";
+        this.errorMessage =
+          "No se pudo conectar ni a la URL primaria ni secundaria.";
       }
     },
   },
