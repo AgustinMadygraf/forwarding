@@ -28,7 +28,7 @@ export default {
     return {
       error: false,
       errorMessage: "",
-      serverUrl: process.env.VUE_APP_BASE_URL || "http://localhost",
+      serverUrl: process.env.VUE_APP_PRIMARY_URL || "http://localhost",
     };
   },
   mounted() {
