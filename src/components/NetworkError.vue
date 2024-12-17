@@ -10,8 +10,8 @@ Este componente muestra un mensaje de error cuando no se puede conectar al servi
     <hr />
     <p class="mb-0">Por favor, verifica tu conexión o intenta más tarde.</p>
     <div class="mt-3">
-      <p><strong>URL primaria:</strong> <a :href="primaryUrl" target="_blank">{{ primaryUrl }}</a></p>
-      <p><strong>URL secundaria:</strong> <a :href="secondaryUrl" target="_blank">{{ secondaryUrl }}</a></p>
+      <p><strong>URL:</strong> <a :href="primaryUrl" target="_blank">{{ primaryUrl }}</a></p>
+     <!-- <p><strong>URL secundaria:</strong> <a :href="secondaryUrl" target="_blank">{{ secondaryUrl }}</a></p>-->
     </div>
   </div>
 </template>
