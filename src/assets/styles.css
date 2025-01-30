@@ -1,3 +1,7 @@
+/*
+Path: src/assets/styles.css
+Este archivo contiene los estilos CSS que se aplicarán a la aplicación.
+*/
 
 .network-error {
   max-width: 500px;
@@ -5,4 +9,33 @@
 }
 .alert a {
   text-decoration: none;
+}
+
+.redirect-handler {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.countdown {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Contenedor del GIF */
+.gif-container {
+  width: 100%;
+  max-width: 400px; /* Tamaño máximo en pantallas grandes */
+  height: 250px; /* Altura fija para uniformidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Configuración del GIF para que todos tengan el mismo tamaño */
+.loading-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que llene el espacio sin deformarse */
 }
